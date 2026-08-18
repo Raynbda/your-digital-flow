@@ -59,6 +59,11 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-band: var(--band);
+  --color-primary-glow: var(--primary-glow);
+  --color-primary-deep: var(--primary-deep);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
 }
 
 :root {
@@ -149,5 +154,21 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
   }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+@utility rise {
+  animation: rise-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
