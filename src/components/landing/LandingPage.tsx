@@ -473,30 +473,31 @@ export function LandingPage() {
 
       {/* Final CTA */}
       <Section id="apply">
-        <div className="relative overflow-hidden rounded-[2rem] bg-[image:var(--gradient-primary)] px-6 py-14 text-primary-foreground sm:px-12 sm:py-20">
+        <div className="relative overflow-hidden rounded-2xl bg-primary px-6 py-14 text-center text-primary-foreground sm:px-12 sm:py-20">
           <Sparkles
             aria-hidden="true"
-            className="absolute right-6 top-6 h-10 w-10 opacity-30"
+            className="absolute right-6 top-6 h-10 w-10 opacity-25"
           />
-          <h2 className="max-w-2xl text-3xl font-bold leading-tight sm:text-4xl">
+          <h2 className="mx-auto max-w-2xl text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
             Your work is unique. Your workflow should be too.
           </h2>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed opacity-90">
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed opacity-90">
             There is no universal setup that makes everyone work better. The best workflow is the
             one that fits your work, your tools, your projects, and the way you think. Show me how
             you work. I'll help you build a better system for it.
           </p>
           <a
             href="mailto:hello@example.com?subject=Apply%20for%201:1%20Workflow%20Optimization"
-            className="mt-9 inline-flex items-center justify-center gap-2 rounded-full bg-background px-7 py-4 text-base font-semibold text-primary shadow-[var(--shadow-lift)] transition-transform duration-200 hover:-translate-y-0.5"
+            className="mt-9 inline-flex items-center justify-center gap-2 rounded-xl bg-background px-6 py-3.5 text-base font-semibold text-primary shadow-[var(--shadow-lift)] transition-transform duration-200 hover:-translate-y-0.5"
           >
             Apply for 1:1 Workflow Optimization
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </a>
-          <p className="mt-5 max-w-xl text-sm opacity-85">
+          <p className="mx-auto mt-5 max-w-xl text-sm opacity-85">
             Every engagement is personalized, so I only take on a limited number of clients at a
             time.
           </p>
+
         </div>
       </Section>
 
