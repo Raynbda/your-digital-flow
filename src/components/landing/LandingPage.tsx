@@ -15,8 +15,7 @@ import {
   Wand2,
   Zap,
 } from "lucide-react";
-import { ApplyButton, Chip, Chip as _Chip, Lead, Section, SectionHead, SectionTitle } from "./primitives";
-void _Chip;
+import { ApplyButton, Chip, Lead, Section, SectionHead } from "./primitives";
 
 const frictions = [
   "You keep doing the same things manually.",
