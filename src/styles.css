@@ -60,6 +60,8 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-band: var(--band);
+  --color-panel: var(--panel);
+  --color-panel-foreground: var(--panel-foreground);
   --color-primary-glow: var(--primary-glow);
   --color-primary-deep: var(--primary-deep);
   --font-display: var(--font-display);
