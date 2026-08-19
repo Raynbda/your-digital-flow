@@ -15,7 +15,7 @@ import {
   Wand2,
   Zap,
 } from "lucide-react";
-import { ApplyButton, Chip, Eyebrow, Lead, Section, SectionTitle } from "./primitives";
+import { ApplyButton, Chip, Section, SectionHead } from "./primitives";
 
 const frictions = [
   "You keep doing the same things manually.",
@@ -226,30 +226,44 @@ const audiences = [
 export function LandingPage() {
   return (
     <main className="pb-24 md:pb-0">
+      <div className="bg-panel px-4 py-2 text-center text-xs font-medium text-panel-foreground">
+        Limited number of clients at a time
+      </div>
+      <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur">
+        <div className="mx-auto flex w-full max-w-[1100px] items-center justify-between px-5 py-3 sm:px-8">
+          <span className="flex items-center gap-2 font-extrabold tracking-tight text-foreground">
+            <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+              <Layers className="h-4 w-4" aria-hidden="true" />
+            </span>
+            Workflow Optimization
+          </span>
+          <ApplyButton size="sm" className="hidden sm:inline-flex" />
+        </div>
+      </header>
+
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-border px-5 pb-20 pt-20 sm:px-8 md:pb-28 md:pt-28">
+      <section className="relative overflow-hidden border-b border-border px-5 pb-20 pt-16 sm:px-8 md:pb-24 md:pt-24">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -right-32 -top-40 h-[520px] w-[520px] rounded-full bg-accent blur-3xl"
+          className="bg-grid pointer-events-none absolute inset-0 opacity-[0.35] [mask-image:radial-gradient(ellipse_at_center,black,transparent_72%)]"
         />
-        <div className="relative mx-auto w-full max-w-[1100px]">
-          <Eyebrow>1:1 Workflow Optimization</Eyebrow>
-          <h1 className="max-w-4xl text-4xl font-bold leading-[1.08] text-foreground sm:text-5xl md:text-6xl">
-            Build a better system for your{" "}
-            <span className="bg-[image:var(--gradient-primary)] bg-clip-text text-transparent">
-              digital work
-            </span>
-            .
+        <div className="relative mx-auto w-full max-w-3xl text-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-semibold text-secondary-foreground">
+            <Sparkles className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
+            1:1 Workflow Optimization
+          </span>
+          <h1 className="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-5xl md:text-6xl">
+            Build a better system for your <span className="text-primary">digital work</span>.
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
             I'll analyze how you work and help you improve your tools, files, information,
             shortcuts, systems, templates, and workflows, so your everyday digital work becomes
             faster, easier, and more organized.
           </p>
-          <div className="mt-9 flex flex-wrap items-center gap-4">
+          <div className="mt-9 flex flex-col items-center gap-3">
             <ApplyButton />
             <span className="text-sm text-muted-foreground">
-              Limited number of clients at a time
+              Personalized engagements, limited spots
             </span>
           </div>
         </div>
@@ -257,23 +271,23 @@ export function LandingPage() {
 
       {/* Friction */}
       <Section band>
-        <SectionTitle>Your digital work has more friction than it should.</SectionTitle>
-        <Lead>
-          You probably don't need another productivity app. You need to fix the small problems that
-          keep slowing you down:
-        </Lead>
+        <SectionHead
+          eyebrow="The problem"
+          title="Your digital work has more friction than it should."
+          lead="You probably don't need another productivity app. You need to fix the small problems that keep slowing you down:"
+        />
         <ul className="mt-10 grid gap-3 sm:grid-cols-2">
           {frictions.map((item) => (
             <li
               key={item}
-              className="flex items-start gap-3 rounded-2xl border border-border bg-card p-5 text-card-foreground"
+              className="flex items-start gap-3 rounded-xl border border-border bg-card p-5 text-card-foreground"
             >
               <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
               <span className="text-[0.975rem] leading-relaxed">{item}</span>
             </li>
           ))}
         </ul>
-        <p className="mt-10 max-w-2xl text-lg font-medium text-foreground">
+        <p className="mx-auto mt-10 max-w-2xl text-center text-lg font-medium text-foreground">
           Individually, these problems seem small. Together, they create a huge amount of
           unnecessary work. That's what I help you fix.
         </p>
@@ -281,25 +295,21 @@ export function LandingPage() {
 
       {/* Analyzed from the inside */}
       <Section>
-        <SectionTitle>Your workflow, analyzed from the inside.</SectionTitle>
-        <Lead>
-          This isn't a generic productivity consultation. I want to see how you actually work. You
-          show me your normal workflow: the apps you use, the projects you work on, the files you
-          manage, the information you collect, and the things you repeatedly do.
-        </Lead>
-        <p className="mt-4 text-base text-muted-foreground">
-          I analyze it to find opportunities to:
-        </p>
+        <SectionHead
+          eyebrow="The approach"
+          title="Your workflow, analyzed from the inside."
+          lead="This isn't a generic productivity consultation. I want to see how you actually work. You show me your normal workflow: the apps you use, the projects you work on, the files you manage, the information you collect, and the things you repeatedly do."
+        />
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {outcomes.map(({ icon: Icon, title, body }) => (
             <article
               key={title}
-              className="rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-soft)] transition-transform duration-200 hover:-translate-y-1"
+              className="rounded-xl border border-border bg-card p-6 transition-shadow duration-200 hover:shadow-[var(--shadow-lift)]"
             >
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-accent text-accent-foreground">
+              <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent text-primary">
                 <Icon className="h-5 w-5" aria-hidden="true" />
               </span>
-              <h3 className="mt-4 text-lg font-semibold text-card-foreground">{title}</h3>
+              <h3 className="mt-4 text-lg font-bold text-card-foreground">{title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
             </article>
           ))}
@@ -308,22 +318,22 @@ export function LandingPage() {
 
       {/* What we can improve */}
       <Section band>
-        <SectionTitle>What we can improve</SectionTitle>
-        <Lead>
-          Your workflow is different from everyone else's, so what we change depends on what you
-          actually need.
-        </Lead>
-        <div className="mt-12 space-y-6">
+        <SectionHead
+          eyebrow="What changes"
+          title="What we can improve"
+          lead="Your workflow is different from everyone else's, so what we change depends on what you actually need."
+        />
+        <div className="mt-12 space-y-5">
           {improvements.map(({ icon: Icon, title, body, items }) => (
             <article
               key={title}
-              className="rounded-3xl border border-border bg-card p-6 sm:p-8 md:flex md:gap-10"
+              className="rounded-xl border border-border bg-card p-6 sm:p-8 md:flex md:gap-10"
             >
               <div className="md:w-2/5">
-                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-[image:var(--gradient-primary)] text-primary-foreground">
+                <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </span>
-                <h3 className="mt-4 text-xl font-semibold text-card-foreground">{title}</h3>
+                <h3 className="mt-4 text-xl font-bold text-card-foreground">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
               </div>
               <ul className="mt-6 flex flex-wrap gap-2 md:mt-0 md:w-3/5 md:content-start">
@@ -338,21 +348,21 @@ export function LandingPage() {
 
       {/* Deliverables */}
       <Section>
-        <SectionTitle>You won't just get advice.</SectionTitle>
-        <Lead>
-          We'll turn the improvements into systems you can actually use. Depending on your workflow,
-          this might mean creating:
-        </Lead>
+        <SectionHead
+          eyebrow="Deliverables"
+          title="You won't just get advice."
+          lead="We'll turn the improvements into systems you can actually use. Depending on your workflow, this might mean creating:"
+        />
         <div className="mt-10 grid gap-5 sm:grid-cols-2">
           {deliverables.map(({ title, body }) => (
             <article
               key={title}
-              className="rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary/40"
+              className="rounded-xl border border-border bg-card p-6 transition-colors hover:border-primary/50"
             >
               <div className="flex items-start gap-3">
                 <Boxes className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
                 <div>
-                  <h3 className="text-base font-semibold text-card-foreground">{title}</h3>
+                  <h3 className="text-base font-bold text-card-foreground">{title}</h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{body}</p>
                 </div>
               </div>
@@ -363,15 +373,15 @@ export function LandingPage() {
 
       {/* How it works */}
       <Section band id="how-it-works">
-        <SectionTitle>How it works</SectionTitle>
-        <ol className="mt-12 space-y-8 border-l border-border pl-6 sm:pl-10">
+        <SectionHead eyebrow="Process" title="How it works" />
+        <ol className="mt-12 space-y-6 border-l border-border pl-6 sm:pl-10">
           {steps.map((step) => (
             <li key={step.number} className="relative">
-              <span className="absolute -left-[1.9rem] top-1 flex h-6 w-6 items-center justify-center rounded-full bg-[image:var(--gradient-primary)] text-[0.65rem] font-bold text-primary-foreground sm:-left-[3.15rem] sm:h-8 sm:w-8 sm:text-xs">
+              <span className="absolute -left-[1.9rem] top-1 flex h-6 w-6 items-center justify-center rounded-lg bg-primary text-[0.65rem] font-bold text-primary-foreground sm:-left-[3.15rem] sm:h-8 sm:w-8 sm:text-xs">
                 {step.number}
               </span>
-              <div className="rounded-3xl border border-border bg-card p-6 sm:p-8">
-                <h3 className="text-xl font-semibold text-card-foreground sm:text-2xl">
+              <div className="rounded-xl border border-border bg-card p-6 sm:p-8">
+                <h3 className="text-xl font-bold text-card-foreground sm:text-2xl">
                   {step.number} - {step.title}
                 </h3>
                 {step.paragraphs.map((p) => (
@@ -387,7 +397,7 @@ export function LandingPage() {
                   </ul>
                 )}
                 {"footer" in step && step.footer ? (
-                  <p className="mt-5 font-medium text-foreground">{step.footer}</p>
+                  <p className="mt-5 font-semibold text-foreground">{step.footer}</p>
                 ) : null}
               </div>
             </li>
@@ -397,38 +407,44 @@ export function LandingPage() {
 
       {/* Why it matters */}
       <Section>
-        <SectionTitle>
-          This isn't about becoming more productive for the sake of it.
-        </SectionTitle>
-        <Lead>
-          It's about removing the unnecessary work surrounding the work that actually matters. You
-          shouldn't have to constantly ask:
-        </Lead>
-        <ul className="mt-10 grid gap-4 sm:grid-cols-2">
-          {questions.map((q) => (
-            <li
-              key={q}
-              className="flex items-start gap-3 rounded-2xl bg-band p-5 text-foreground"
-            >
-              <Quote className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
-              <span className="text-[0.975rem] italic leading-relaxed">{q}</span>
-            </li>
-          ))}
-        </ul>
-        <p className="mt-10 text-xl font-semibold text-foreground">
-          Your digital work should have systems behind it.
-        </p>
+        <div className="rounded-2xl bg-panel px-6 py-14 text-panel-foreground sm:px-12">
+          <div className="text-center">
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-primary-glow">
+              Why it matters
+            </p>
+            <h2 className="mx-auto max-w-3xl text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
+              This isn't about becoming more productive for the sake of it.
+            </h2>
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed opacity-80 sm:text-lg">
+              It's about removing the unnecessary work surrounding the work that actually matters.
+              You shouldn't have to constantly ask:
+            </p>
+          </div>
+          <ul className="mt-10 grid gap-4 sm:grid-cols-2">
+            {questions.map((q) => (
+              <li
+                key={q}
+                className="flex items-start gap-3 rounded-xl border border-panel-foreground/15 p-5"
+              >
+                <Quote className="mt-0.5 h-4 w-4 shrink-0 text-primary-glow" aria-hidden="true" />
+                <span className="text-[0.975rem] italic leading-relaxed opacity-90">{q}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-10 text-center text-xl font-bold">
+            Your digital work should have systems behind it.
+          </p>
+        </div>
       </Section>
 
       {/* Who is this for */}
       <Section band>
-        <SectionTitle>Who is this for?</SectionTitle>
-        <Lead>
-          This is for people who spend a significant part of their day doing digital work and want
-          to improve the way they work without adopting an entirely new productivity philosophy.
-          Especially:
-        </Lead>
-        <ul className="mt-8 flex flex-wrap gap-2">
+        <SectionHead
+          eyebrow="Audience"
+          title="Who is this for?"
+          lead="This is for people who spend a significant part of their day doing digital work and want to improve the way they work without adopting an entirely new productivity philosophy. Especially:"
+        />
+        <ul className="mt-8 flex flex-wrap justify-center gap-2">
           {audiences.map((a) => (
             <Chip key={a}>{a}</Chip>
           ))}
@@ -442,44 +458,46 @@ export function LandingPage() {
           ].map((item) => (
             <p
               key={item}
-              className="flex items-start gap-3 rounded-2xl border border-border bg-card p-5 text-[0.95rem] text-card-foreground"
+              className="flex items-start gap-3 rounded-xl border border-border bg-card p-5 text-[0.95rem] text-card-foreground"
             >
               <ListChecks className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
               {item}
             </p>
           ))}
         </div>
-        <p className="mt-8 max-w-2xl text-lg text-foreground">
+        <p className="mx-auto mt-8 max-w-2xl text-center text-lg text-foreground">
           We start with what you already use and improve it from there.
         </p>
       </Section>
 
+
       {/* Final CTA */}
       <Section id="apply">
-        <div className="relative overflow-hidden rounded-[2rem] bg-[image:var(--gradient-primary)] px-6 py-14 text-primary-foreground sm:px-12 sm:py-20">
+        <div className="relative overflow-hidden rounded-2xl bg-primary px-6 py-14 text-center text-primary-foreground sm:px-12 sm:py-20">
           <Sparkles
             aria-hidden="true"
-            className="absolute right-6 top-6 h-10 w-10 opacity-30"
+            className="absolute right-6 top-6 h-10 w-10 opacity-25"
           />
-          <h2 className="max-w-2xl text-3xl font-bold leading-tight sm:text-4xl">
+          <h2 className="mx-auto max-w-2xl text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
             Your work is unique. Your workflow should be too.
           </h2>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed opacity-90">
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed opacity-90">
             There is no universal setup that makes everyone work better. The best workflow is the
             one that fits your work, your tools, your projects, and the way you think. Show me how
             you work. I'll help you build a better system for it.
           </p>
           <a
             href="mailto:hello@example.com?subject=Apply%20for%201:1%20Workflow%20Optimization"
-            className="mt-9 inline-flex items-center justify-center gap-2 rounded-full bg-background px-7 py-4 text-base font-semibold text-primary shadow-[var(--shadow-lift)] transition-transform duration-200 hover:-translate-y-0.5"
+            className="mt-9 inline-flex items-center justify-center gap-2 rounded-xl bg-background px-6 py-3.5 text-base font-semibold text-primary shadow-[var(--shadow-lift)] transition-transform duration-200 hover:-translate-y-0.5"
           >
             Apply for 1:1 Workflow Optimization
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </a>
-          <p className="mt-5 max-w-xl text-sm opacity-85">
+          <p className="mx-auto mt-5 max-w-xl text-sm opacity-85">
             Every engagement is personalized, so I only take on a limited number of clients at a
             time.
           </p>
+
         </div>
       </Section>
 
