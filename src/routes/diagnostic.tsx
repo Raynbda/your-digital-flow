@@ -312,11 +312,11 @@ function NavRow({
   nextDisabled,
   nextIcon,
 }: {
-  onBack?: () => void;
+  onBack?: (() => void) | undefined;
   onNext: () => void;
   nextLabel: string;
-  nextDisabled?: boolean;
-  nextIcon?: React.ReactNode;
+  nextDisabled?: boolean | undefined;
+  nextIcon?: React.ReactNode | undefined;
 }) {
   return (
     <div className="mt-10 flex items-center justify-between gap-3">
