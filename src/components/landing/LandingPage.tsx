@@ -15,6 +15,7 @@ import {
   Wand2,
   Zap,
 } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { ApplyButton, Chip, Section, SectionHead } from "./primitives";
 
 const frictions = [
@@ -235,7 +236,7 @@ export function LandingPage() {
             <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-primary text-primary-foreground">
               <Layers className="h-4 w-4" aria-hidden="true" />
             </span>
-            Workflow Optimization
+            Digital Work OS
           </span>
           <ApplyButton size="sm" className="hidden sm:inline-flex" />
         </div>
@@ -261,6 +262,13 @@ export function LandingPage() {
             faster, easier, and more organized.
           </p>
           <div className="mt-9 flex flex-col items-center gap-3">
+            <Link
+              to="/diagnostic"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-base font-semibold text-primary-foreground shadow-[var(--shadow-soft)] transition-colors duration-200 hover:bg-primary-deep"
+            >
+              Take the free workflow diagnostic
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
             <ApplyButton />
             <span className="text-sm text-muted-foreground">
               Personalized engagements, limited spots
@@ -493,6 +501,11 @@ export function LandingPage() {
             Apply for 1:1 Workflow Optimization
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </a>
+          <div className="mt-6">
+            <Link to="/diagnostic" className="text-sm font-semibold underline opacity-90">
+              Not sure yet? Take the free workflow diagnostic
+            </Link>
+          </div>
           <p className="mx-auto mt-5 max-w-xl text-sm opacity-85">
             Every engagement is personalized, so I only take on a limited number of clients at a
             time.
@@ -503,7 +516,7 @@ export function LandingPage() {
 
       <footer className="border-t border-border px-5 py-10 sm:px-8">
         <div className="mx-auto flex w-full max-w-[1100px] flex-col gap-2 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>1:1 Workflow Optimization</p>
+          <p>Digital Work OS</p>
           <p>Better systems for your digital work.</p>
         </div>
       </footer>
