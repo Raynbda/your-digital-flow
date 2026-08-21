@@ -14,7 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      diagnostic_submissions: {
+        Row: {
+          answers: Json
+          created_at: string
+          email: string | null
+          id: string
+          name: string | null
+          primary_diagnosis: string
+          scores: Json
+          secondary_diagnosis: string | null
+        }
+        Insert: {
+          answers?: Json
+          created_at?: string
+          email?: string | null
+          id?: string
+          name?: string | null
+          primary_diagnosis: string
+          scores?: Json
+          secondary_diagnosis?: string | null
+        }
+        Update: {
+          answers?: Json
+          created_at?: string
+          email?: string | null
+          id?: string
+          name?: string | null
+          primary_diagnosis?: string
+          scores?: Json
+          secondary_diagnosis?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
